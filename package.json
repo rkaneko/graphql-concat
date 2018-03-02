@@ -1,0 +1,46 @@
+{
+  "name": "graphql-concat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch:build": "npm run build -- --watch",
+    "test": "npm run clean && npm run build && ava",
+    "watch:test": "npm run clean && run-p --print-label \"watch:build\" \"test --watch\"",
+    "clean": "rm -rf dist"
+  },
+  "ava": {
+    "files": [
+      "dist/**/*.spec.js"
+    ],
+    "sources": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "concurrency": 2,
+    "failFast": true,
+    "failWithoutAssertions": false,
+    "tap": true
+  },
+  "keywords": [
+    "graphql",
+    "schema"
+  ],
+  "author": "rkaneko <kanek.o.dev@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/graphql": "^0.12.4",
+    "@types/mkdirp": "^0.5.2",
+    "@types/node": "^9.4.6",
+    "@types/rimraf": "^2.0.2",
+    "ava": "^0.25.0",
+    "npm-run-all": "^4.1.2",
+    "rimraf": "^2.6.2",
+    "typescript": "^2.7.2"
+  },
+  "dependencies": {
+    "graphql": "^0.13.1",
+    "graphql-config": "^2.0.1",
+    "mkdirp": "^0.5.1"
+  }
+}

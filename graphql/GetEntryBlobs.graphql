@@ -1,0 +1,7 @@
+query GetEntryBlobs($owner: String!, $name: String!, $expression: String = "refs/heads/master") {
+  repository(owner: $owner, name: $name) {
+    object(expression: $expression) {
+      ... CommitEntryTree
+    }
+  }
+}

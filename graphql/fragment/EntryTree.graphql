@@ -1,0 +1,46 @@
+fragment EntryTree on Tree {
+  entries {
+    type
+    name
+    object {
+      __typename
+      ... on Tree {
+        entries {
+          type
+          name
+          object {
+            __typename
+            ... on Tree {
+              entries {
+                type
+                name
+                object {
+                  __typename
+                  ... on Tree {
+                    entries {
+                      type
+                      name
+                      object {
+                        __typename
+                        ... on Tree {
+                          entries {
+                            type
+                            name
+                            object {
+                              __typename
+                              ... EntryBlob
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

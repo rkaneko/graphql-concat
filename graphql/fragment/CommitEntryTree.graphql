@@ -1,0 +1,6 @@
+fragment CommitEntryTree on Commit {
+  tree {
+    __typename
+    ... EntryTree
+  }
+}

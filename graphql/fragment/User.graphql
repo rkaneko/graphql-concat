@@ -1,0 +1,7 @@
+fragment User on GitActor {
+  user {
+    id
+    login
+    name
+  }
+}

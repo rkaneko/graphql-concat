@@ -1,0 +1,9 @@
+fragment EntryCommit on Commit {
+  id
+  author {
+    user {
+      id
+    }
+  }
+  committedDate
+}

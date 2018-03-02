@@ -1,0 +1,10 @@
+fragment EntryLatestCommit on Commit {
+  history(first: 1, path: $path) {
+    edges {
+      cursor
+      node {
+        ... EntryCommit
+      }
+    }
+  }
+}

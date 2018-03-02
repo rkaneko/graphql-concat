@@ -1,0 +1,4 @@
+fragment EntryBlob on Blob {
+  commitUrl
+  text
+}

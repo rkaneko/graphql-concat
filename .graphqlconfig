@@ -1,0 +1,24 @@
+{
+  "projects": {
+    "github": {
+      "schemaPath": "./graphql/schema.graphql",
+      "includes": [
+        "./graphql/**/*.graphql"
+      ],
+      "excludes": [
+        "./graphql/exec/**/*.graphql",
+        "./graphql/dist/**/*.graphql"
+      ],
+      "extensions": {
+        "endpoints": {
+          "dev": {
+            "url": "https://api.github.com/graphql",
+            "headers": {
+              "Authorization": "Bearer ${env:GH_TOKEN}"
+            }
+          }
+        }
+      }
+    }
+  }
+}

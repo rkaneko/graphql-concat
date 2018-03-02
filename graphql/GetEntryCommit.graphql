@@ -1,0 +1,7 @@
+query GetEntryCommit($owner: String!, $name: String!, $expression: String = "refs/heads/master", $path: String!) {
+  repository(owner: $owner, name: $name) {
+    object(expression: $expression) {
+      ... EntryLatestCommit
+    }
+  }
+}
