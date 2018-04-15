@@ -10,6 +10,7 @@ import {
 } from "./preprocess";
 
 import outputGQL from "./output/outputGQL";
+import outputTS from "./output/outputTS";
 
 export type ExecutableDocumentNodeDict = Map<string, DocumentNode>;
 
@@ -18,7 +19,7 @@ async function compute(ctx: ConcatContext, preprocessed: Preprocessed): Promise<
         .reduce<ExecutableDocumentNodeDict>((dict, distpath) => {
             const inexecutableDocumentNode = preprocessed.inexecutableDocumentNodeDict.get(distpath);
             if (!inexecutableDocumentNode) {
-                throw new Error("Invalid state.");
+                throw new Error(`Not found value from dict by key: ${distpath} .`);
             }
             const executableDocumentNode = concatDefinitionNodesToExecutableDocumentNode(
                 inexecutableDocumentNode,
@@ -29,6 +30,8 @@ async function compute(ctx: ConcatContext, preprocessed: Preprocessed): Promise<
         }, new Map<string, DocumentNode>());
     if (ctx.lang === "gql") {
         return outputGQL(ctx, executableDocumentNodeDict); 
+    } else if (ctx.lang === "ts") {
+        return outputTS(ctx, executableDocumentNodeDict);
     } else {
         console.log("Unsupported yet.");
         return Promise.resolve();

@@ -21,7 +21,9 @@ async function main() {
     const opts = {
         dist: "./graphql/dist",
         output: "file",
-        lang: "gql"
+        // output: "stdout",
+        // lang: "gql"
+        lang: "ts"
     };
     const distDir = opts.dist
         ? path.join(cwd, opts.dist)

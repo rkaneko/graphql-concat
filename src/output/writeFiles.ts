@@ -17,7 +17,11 @@ function writeFiles(outputFiles: OutputFile[]): Promise<void> {
                 FILE_WRITE_OPTS
             )
         )
-    ).then(() => {});
+    ).then(() => {
+        outputFiles.forEach(outputFile => {
+            console.log(`Created: ${outputFile.distpath} .`);
+        });
+    });
 }
 
 export default writeFiles;

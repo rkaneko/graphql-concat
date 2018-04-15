@@ -13,8 +13,13 @@ function createDistPath(
         throw new Error(`GraphQL file should exist in dir: ${ctx.projectRootDir}.`);
     }
 
-    const relatives = segments2.slice(segments1.length, segments2.length);
-    return path.join(ctx.distDir, ...relatives);
+    const filename = path.basename(originpath);
+    const basename = ctx.lang === "gql"
+        ? filename
+        : `${path.basename(filename, path.extname(filename))}.${ctx.lang}`
+            ;
+    const relativeToDir = segments2.slice(segments1.length, segments2.length - 1);
+    return path.join(ctx.distDir, ...relativeToDir, basename);
 }
 
 export default createDistPath;

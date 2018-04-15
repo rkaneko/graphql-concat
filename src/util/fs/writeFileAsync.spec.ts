@@ -22,7 +22,7 @@ Yeah!
 
     t.false(isFile(pathToFile));
 
-    const something = await writeFileAsync(
+    await writeFileAsync(
         pathToFile,
         text,
         { encoding: "utf-8" }

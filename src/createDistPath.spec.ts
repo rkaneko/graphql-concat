@@ -14,3 +14,19 @@ test("Can create dist path.", t => {
     const expected = path.join(MockConcatContext.distDir, relativeFrom);
     t.is(actual, expected);
 });
+
+test("Can create dist path when lang is ts.", t => {
+    const originFilename = "Somequery.graphql";
+    const dirname = "graphql";
+    const relativeFrom = path.join(dirname, originFilename);
+    const ctx = Object.assign({}, MockConcatContext, { lang: "ts" as "ts" });
+    const originpath = path.join(ctx.projectRootDir, relativeFrom);
+
+    const actual = createDistPath(ctx, originpath);
+    const expected = path.join(
+        ctx.distDir,
+        dirname,
+        `${path.basename(originFilename, path.extname(originFilename))}.ts`,
+    );
+    t.is(actual, expected);
+});
