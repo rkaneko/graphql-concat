@@ -1,3 +1,12 @@
+#!/usr/bin/env node
+
+/**
+ * @author rkaneko
+ * @copyright 2018 Ryota Kaneko. All rights reserved.
+ * See LICENSE file in root directory for full license.
+ */
+"use strict"
+
 import path from "path";
 
 import parseOpts from "./cli/parseOpts";
