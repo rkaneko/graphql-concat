@@ -21,6 +21,8 @@ import * as CommandOptions from "./cli/CommandOptions";
 async function main() {
     const command = parseOpts(process.argv);
     validateOpts(command.opts());
+    const opts = command.opts();
+    // console.log(opts);
 
     // TODO get project root dir on npm project
     const cwd: string = process.cwd();
@@ -28,12 +30,10 @@ async function main() {
         cwd,
         ".graphqlconfig"
     );
-    const projectName = "github";
-    const config = loadConfig(pathToConfig, projectName);
+
+    const config = loadConfig(pathToConfig, opts.project);
     // console.log(config);
 
-    const opts = command.opts();
-    // console.log(opts);
     const distDir = opts.dist
         ? path.join(cwd, opts.dist)
         : config.configDir
