@@ -10,7 +10,6 @@
 import path from "path";
 
 import parseOpts from "./cli/parseOpts";
-import validateOpts from "./cli/validateOpts";
 
 import compute from "./compute";
 import loadConfig from "./loadConfig";
@@ -20,7 +19,6 @@ import * as CommandOptions from "./cli/CommandOptions";
 
 async function main() {
     const command = parseOpts(process.argv);
-    validateOpts(command.opts());
     const opts = command.opts();
     // console.log(opts);
 
@@ -35,10 +33,10 @@ async function main() {
     // console.log(config);
 
     const distDir = opts.dist
-        ? path.join(cwd, opts.dist)
+        ? path.resolve(cwd, opts.dist)
         : config.configDir
-        ? path.join(config.configDir, "dist")
-        : path.join(cwd, "dist");
+        ? path.resolve(config.configDir, "dist")
+        : path.resolve(cwd, "dist");
     const ctx = {
         config,
         projectRootDir: config.configDir || cwd,

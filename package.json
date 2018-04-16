@@ -14,7 +14,8 @@
   "scripts": {
     "build": "tsc",
     "watch:build": "npm run build -- --watch",
-    "test": "ava",
+    "test": "npm-run-all clean build ava",
+    "ava": "ava",
     "watch:ava": "ava --watch",
     "clean": "rimraf dist",
     "watch:test": "npm-run-all clean build --print-label --parallel watch:build watch:ava"
