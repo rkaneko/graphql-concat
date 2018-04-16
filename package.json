@@ -2,7 +2,6 @@
   "name": "graphql-concat",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "build": "tsc",
     "watch:build": "npm run build -- --watch",
@@ -39,8 +38,9 @@
     "typescript": "^2.7.2"
   },
   "dependencies": {
-    "graphql": "^0.13.1",
+    "commander": "^2.15.1",
     "graphql-config": "^2.0.1",
+    "graphql": "^0.13.1",
     "mkdirp": "^0.5.1"
   }
 }

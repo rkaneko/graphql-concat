@@ -1,5 +1,8 @@
 import path from "path";
 
+import parseOpts from "./cli/parseOpts";
+import validateOpts from "./cli/validateOpts";
+
 import compute from "./compute";
 import loadConfig from "./loadConfig";
 import preprocess from "./preprocess";
@@ -7,6 +10,9 @@ import preprocess from "./preprocess";
 import * as CommandOptions from "./cli/CommandOptions";
 
 async function main() {
+    const command = parseOpts(process.argv);
+    validateOpts(command.opts());
+
     // TODO get project root dir on npm project
     const cwd: string = process.cwd();
     const pathToConfig = path.join(
@@ -17,14 +23,8 @@ async function main() {
     const config = loadConfig(pathToConfig, projectName);
     // console.log(config);
 
-    // TODO option from command line args
-    const opts = {
-        dist: "./graphql/dist",
-        output: "file",
-        // output: "stdout",
-        // lang: "gql"
-        lang: "ts"
-    };
+    const opts = command.opts();
+    // console.log(opts);
     const distDir = opts.dist
         ? path.join(cwd, opts.dist)
         : config.configDir

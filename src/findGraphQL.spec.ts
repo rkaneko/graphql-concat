@@ -6,7 +6,8 @@ import loadConfig from "./loadConfig";
 
 test("Can find GraphQL files considering .graphqlconfig.", t => {
     const projectRootDir = process.cwd();
-    const config = loadConfig(projectRootDir, "github");
+    const pathToConfig = path.join(projectRootDir, ".graphqlconfig");
+    const config = loadConfig(pathToConfig, "github");
     const ctx = {
         config,
         projectRootDir,
