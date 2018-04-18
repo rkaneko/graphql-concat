@@ -54,10 +54,9 @@ function printout(dict: ExecutableDocumentNodeDict): void {
 function createTSOutput(distpath: string, dn: DocumentNode): string {
     const operationName = path.basename(distpath, path.extname(distpath));
     const gql = print(dn);
-    const output = `const ${operationName} = \`
+    const output = `export const ${operationName} = \`
 ${gql}
 \`;
-export ${operationName};
 `;
     return output;
 }
