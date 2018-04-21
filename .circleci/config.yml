@@ -1,0 +1,37 @@
+workflows:
+  version: 2
+  node-build:
+    jobs:
+      - node8
+
+version: 2
+jobs:
+  node-base: &node-base
+    docker:
+      - image: node
+    working_directory: ~/repo
+    steps:
+      - run:
+          name: Version
+          command: |
+            echo "npm: $(npm --version)"
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+      - run: npm i
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: npm test
+
+  node8:
+    <<: *node-base
+    docker:
+      - image: node:8
+  node9:
+    <<: *node-base
+    docker:
+      - image: node:9
