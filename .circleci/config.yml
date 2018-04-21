@@ -3,6 +3,7 @@ workflows:
   node-build:
     jobs:
       - node8
+      - node9
 
 version: 2
 jobs:
