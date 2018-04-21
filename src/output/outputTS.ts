@@ -2,8 +2,8 @@ import { DocumentNode, print } from "graphql/language";
 
 import path from "path";
 
-import ConcatContext from "../ConcatContext";
 import { ExecutableDocumentNodeDict } from "../compute";
+import ConcatContext from "../ConcatContext";
 import { Preprocessed } from "../preprocess";
 
 import writeFiles from "./writeFiles";
@@ -42,11 +42,13 @@ function printout(dict: ExecutableDocumentNodeDict): void {
             throw new Error(`Not found value from dict by key: ${distpath} .`);
         }
         const output = createTSOutput(distpath, dn);
+        /* tslint:disable no-console */
         console.log(
             "----------------------------------------------------------------------"
         );
         console.log(`dist: ${distpath}\n`);
         console.log(output);
+        /* tslint:enable no-console */
     });
 }
 

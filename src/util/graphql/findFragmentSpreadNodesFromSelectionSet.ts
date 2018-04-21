@@ -1,4 +1,4 @@
-import { SelectionSetNode, FragmentSpreadNode } from "graphql/language";
+import { FragmentSpreadNode, SelectionSetNode } from "graphql/language";
 
 import findFragmentSpreadNodes from "./findFragmentSpreadNodes";
 

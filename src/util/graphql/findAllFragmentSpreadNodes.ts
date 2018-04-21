@@ -1,9 +1,9 @@
 import {
     DocumentNode,
-    OperationDefinitionNode,
     FragmentDefinitionNode,
-    SelectionSetNode,
-    FragmentSpreadNode
+    FragmentSpreadNode,
+    OperationDefinitionNode,
+    SelectionSetNode
 } from "graphql/language";
 
 import findFragmentSpreadNodesFromSelectionSet from "./findFragmentSpreadNodesFromSelectionSet";

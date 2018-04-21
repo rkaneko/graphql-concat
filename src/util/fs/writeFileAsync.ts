@@ -4,7 +4,7 @@ import { promisify } from "util";
 
 import mkdirpAsync from "./mkdirpAsync";
 
-const _writeFileAsync = promisify(fs.writeFile);
+const promisified = promisify(fs.writeFile);
 
 export default function writeFileAsync(
     file: string,
@@ -18,8 +18,9 @@ export default function writeFileAsync(
     const parentDir = path.dirname(file);
     return mkdirpAsync(parentDir).then(dir => {
         if (dir) {
+            // tslint:disable-next-line no-console
             console.log(`Created new dir: ${dir} .`);
         }
-        return _writeFileAsync(file, data, options);
+        return promisified(file, data, options);
     });
 }

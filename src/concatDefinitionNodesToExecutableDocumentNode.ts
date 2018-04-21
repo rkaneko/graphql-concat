@@ -1,6 +1,6 @@
 import {
-    DocumentNode,
     DefinitionNode,
+    DocumentNode,
     FragmentDefinitionNode,
     NameNode
 } from "graphql/language/ast";
@@ -44,11 +44,12 @@ function concatDefinitionNodesToExecutableDocumentNode(
     ) {
         return concatenatedDocumentNode;
     }
-    let previous, next;
-    do {
+    let previous = documentNode;
+    let next = concatenatedDocumentNode;
+    while (previous.definitions.length < next.definitions.length) {
         previous = next || concatenatedDocumentNode;
         next = concatDefinitionNodesToExecutableDocumentNode(previous, dict);
-    } while (previous.definitions.length < next.definitions.length);
+    }
     return next;
 }
 

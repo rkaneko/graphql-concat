@@ -24,7 +24,7 @@ async function preprocess(ctx: ConcatContext): Promise<Preprocessed> {
     const inexecutableDocumentNodeDict = new Map<string, DocumentNode>();
 
     let fddict = new Map<string, FragmentDefinitionNode>();
-    for (let fullpath of fullpaths) {
+    for (const fullpath of fullpaths) {
         const gql = await readFileAsync(fullpath, FILE_READ_OPTS);
         const dn = sourceToDocumentNode(gql);
 

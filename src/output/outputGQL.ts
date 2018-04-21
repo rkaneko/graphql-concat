@@ -1,7 +1,7 @@
 import { print } from "graphql/language";
 
-import ConcatContext from "../ConcatContext";
 import { ExecutableDocumentNodeDict } from "../compute";
+import ConcatContext from "../ConcatContext";
 import { Preprocessed } from "../preprocess";
 
 import writeFiles from "./writeFiles";
@@ -29,11 +29,13 @@ async function outputGQL(
 
 function printout(dict: ExecutableDocumentNodeDict): void {
     Array.from(dict.keys()).forEach(distpath => {
+        /* tslint:disable no-console */
         console.log(
             "----------------------------------------------------------------------"
         );
         console.log(`dist: ${distpath}\n`);
         console.log(print(dict.get(distpath)));
+        /* tslint:enable no-console */
     });
 }
 

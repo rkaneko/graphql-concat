@@ -34,8 +34,7 @@ async function compute(
     } else if (ctx.lang === "ts") {
         return outputTS(ctx, executableDocumentNodeDict);
     } else {
-        console.log("Unsupported yet.");
-        return Promise.resolve();
+        throw new Error("Unsupported yet.");
     }
 }
 

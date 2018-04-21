@@ -1,4 +1,4 @@
-import { GraphQLProjectConfig, getGraphQLProjectConfig } from "graphql-config";
+import { getGraphQLProjectConfig, GraphQLProjectConfig } from "graphql-config";
 import path from "path";
 
 import isFile from "./util/fs/isFile";

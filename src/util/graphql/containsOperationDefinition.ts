@@ -1,7 +1,7 @@
 import { DocumentNode } from "graphql/language";
 
 function containsOperationDefinition(documentNode: DocumentNode): boolean {
-    for (let definition of documentNode.definitions) {
+    for (const definition of documentNode.definitions) {
         if (definition.kind === "OperationDefinition") {
             return true;
         }

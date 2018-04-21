@@ -17,6 +17,7 @@ function writeFiles(outputFiles: OutputFile[]): Promise<void> {
         )
     ).then(() => {
         outputFiles.forEach(outputFile => {
+            // tslint:disable-next-line no-console
             console.log(`Created: ${outputFile.distpath} .`);
         });
     });

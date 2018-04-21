@@ -49,9 +49,11 @@ async function main() {
 process.on("unhandledRejection", console.error);
 main()
     .then(() => {
+        // tslint:disable-next-line no-console
         console.log("Completed!");
     })
     .catch(e => {
+        // tslint:disable-next-line no-console
         console.error(e, e.message, e.stack);
         process.exit(1);
     });

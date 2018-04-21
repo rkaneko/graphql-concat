@@ -25,6 +25,8 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      - run: npm run check:prettier
+      - run: npm run tslint
       - run: npm test
 
   node8:
