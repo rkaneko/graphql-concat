@@ -8,12 +8,7 @@ import readFileAsync from "./readFileAsync";
 import writeFileAsync from "./writeFileAsync";
 
 test("Can write a new file.", async t => {
-    const segments = [
-        path.resolve("/"),
-        "tmp",
-        "gqlcat",
-        "newfile.ts"
-    ];
+    const segments = [path.resolve("/"), "tmp", "gqlcat", "newfile.ts"];
     const pathToFile = path.join(...segments);
     const text = `
 new file goes here.
@@ -22,11 +17,7 @@ Yeah!
 
     t.false(isFile(pathToFile));
 
-    await writeFileAsync(
-        pathToFile,
-        text,
-        { encoding: "utf-8" }
-    );
+    await writeFileAsync(pathToFile, text, { encoding: "utf-8" });
 
     t.true(isFile(pathToFile));
 

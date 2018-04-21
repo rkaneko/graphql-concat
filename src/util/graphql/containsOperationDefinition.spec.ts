@@ -4,7 +4,6 @@ import sourceToDocumentNode from "./sourceToDocumentNode";
 
 import containsOperationDefinition from "./containsOperationDefinition";
 
-
 test("DocumentNode should contain OperationDefinition.", t => {
     const source1 = `
 query SomeQuery {
@@ -34,7 +33,6 @@ mutation SomeMutaton($name: string) {
         );
         t.true(actual, `source[${index}] failed to assert.`);
     });
-
 });
 
 test("DocumentNode should not contain OperationDefinition.", t => {

@@ -8,7 +8,15 @@ import sourceToDocumentNode from "./sourceToDocumentNode";
 import findAllFragmentSpreadNodes from "./findAllFragmentSpreadNodes";
 
 test("Can find FragmentSpreadNode from DocumentNode.", async t => {
-    const pathToGraphQL = path.join(__dirname, "..", "..", "..", "graphql", "exec", "GetEntryCommit.graphql");
+    const pathToGraphQL = path.join(
+        __dirname,
+        "..",
+        "..",
+        "..",
+        "graphql",
+        "exec",
+        "GetEntryCommit.graphql"
+    );
     const graphql = await readFileAsync(pathToGraphQL, { encoding: "utf-8" });
     const documentNode = sourceToDocumentNode(graphql);
 

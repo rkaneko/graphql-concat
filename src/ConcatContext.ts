@@ -1,12 +1,6 @@
-import {
-    GraphQLProjectConfig
-} from "graphql-config";
+import { GraphQLProjectConfig } from "graphql-config";
 
-import {
-    OutputFormat,
-    OutputLanguage
-} from "./cli/CommandOptions";
-
+import { OutputFormat, OutputLanguage } from "./cli/CommandOptions";
 
 interface ConcatContext {
     readonly config: GraphQLProjectConfig;

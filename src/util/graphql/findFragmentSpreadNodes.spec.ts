@@ -1,9 +1,6 @@
 import test from "ava";
 
-import {
-    FragmentDefinitionNode,
-    SelectionNode
-} from "graphql/language";
+import { FragmentDefinitionNode, SelectionNode } from "graphql/language";
 
 import sourceToDocumentNode from "./sourceToDocumentNode";
 

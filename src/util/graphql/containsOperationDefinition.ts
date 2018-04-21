@@ -1,10 +1,6 @@
-import {
-    DocumentNode
-} from "graphql/language";
+import { DocumentNode } from "graphql/language";
 
-function containsOperationDefinition(
-    documentNode: DocumentNode
-): boolean {
+function containsOperationDefinition(documentNode: DocumentNode): boolean {
     for (let definition of documentNode.definitions) {
         if (definition.kind === "OperationDefinition") {
             return true;

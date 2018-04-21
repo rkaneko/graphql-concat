@@ -5,7 +5,8 @@ import ConcatContext from "./ConcatContext";
 import findFilesRecursively from "./util/fs/findFilesRecursively";
 
 function findGraphQL(ctx: ConcatContext): string[] {
-    const includes = (fullpath: string) => ctx.config.includesFile(fullpath) && isGraphQL(fullpath);
+    const includes = (fullpath: string) =>
+        ctx.config.includesFile(fullpath) && isGraphQL(fullpath);
     return findFilesRecursively(ctx.projectRootDir, [includes]);
 }
 

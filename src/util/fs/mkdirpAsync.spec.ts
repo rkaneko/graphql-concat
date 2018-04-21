@@ -7,14 +7,7 @@ import isDirectory from "./isDirectory";
 import mkdirpAsync from "./mkdirpAsync";
 
 test("Can mkdir -p if target path hasn't existed yet.", async t => {
-    const segments = [
-        path.resolve("/"),
-        "tmp",
-        "gqlcat",
-        "path",
-        "to",
-        "gql"
-    ];
+    const segments = [path.resolve("/"), "tmp", "gqlcat", "path", "to", "gql"];
     const pathToDir = path.join(...segments);
 
     t.false(isDirectory(pathToDir));

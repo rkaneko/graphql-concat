@@ -1,7 +1,3 @@
-export type OutputFormat = "stdout"
-    | "file"
-;
+export type OutputFormat = "stdout" | "file";
 
-export type OutputLanguage = "gql"
-    | "ts"
-;
+export type OutputLanguage = "gql" | "ts";

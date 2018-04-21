@@ -26,7 +26,8 @@ test("Can find all files' full path with filters.", t => {
 
 test("Cannot find all files' full path with filters, because result has no matched filters.", t => {
     const thisDir = path.resolve(__dirname);
-    const isExtensionBlahBlah = (fullpath: string) => fullpath.endsWith(".blahblah");
+    const isExtensionBlahBlah = (fullpath: string) =>
+        fullpath.endsWith(".blahblah");
     const actual = findFilesRecursively(thisDir, [isExtensionBlahBlah]);
 
     t.true(actual.length === 0);

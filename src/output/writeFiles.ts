@@ -1,6 +1,4 @@
-import {
-    print
-} from "graphql/language";
+import { print } from "graphql/language";
 
 import OutputFile from "./OutputFile";
 

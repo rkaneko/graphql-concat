@@ -1,17 +1,10 @@
-import {
-    DocumentNode,
-    print
-} from "graphql/language";
+import { DocumentNode, print } from "graphql/language";
 
 import path from "path";
 
 import ConcatContext from "../ConcatContext";
-import {
-    ExecutableDocumentNodeDict
-} from "../compute";
-import {
-    Preprocessed
-} from "../preprocess";
+import { ExecutableDocumentNodeDict } from "../compute";
+import { Preprocessed } from "../preprocess";
 
 import writeFiles from "./writeFiles";
 
@@ -23,17 +16,21 @@ async function outputTS(
         printout(executableDocumentNodeDict);
         return Promise.resolve();
     } else {
-        const outputFiles = Array.from(executableDocumentNodeDict.keys()).map(distpath => {
-            const dn = executableDocumentNodeDict.get(distpath);
-            if (!dn) {
-                throw new Error(`Not found value from dict by key: ${distpath} .`);
+        const outputFiles = Array.from(executableDocumentNodeDict.keys()).map(
+            distpath => {
+                const dn = executableDocumentNodeDict.get(distpath);
+                if (!dn) {
+                    throw new Error(
+                        `Not found value from dict by key: ${distpath} .`
+                    );
+                }
+                const output = createTSOutput(distpath, dn);
+                return {
+                    distpath,
+                    output
+                };
             }
-            const output = createTSOutput(distpath, dn);
-            return {
-                distpath,
-                output
-            };
-        });
+        );
         return writeFiles(outputFiles);
     }
 }
@@ -45,7 +42,9 @@ function printout(dict: ExecutableDocumentNodeDict): void {
             throw new Error(`Not found value from dict by key: ${distpath} .`);
         }
         const output = createTSOutput(distpath, dn);
-        console.log("----------------------------------------------------------------------");
+        console.log(
+            "----------------------------------------------------------------------"
+        );
         console.log(`dist: ${distpath}\n`);
         console.log(output);
     });

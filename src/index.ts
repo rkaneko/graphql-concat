@@ -5,7 +5,7 @@
  * @copyright 2018 Ryota Kaneko. All rights reserved.
  * See LICENSE file in root directory for full license.
  */
-"use strict"
+"use strict";
 
 import path from "path";
 
@@ -24,10 +24,7 @@ async function main() {
 
     // TODO get project root dir on npm project
     const cwd: string = process.cwd();
-    const pathToConfig = path.join(
-        cwd,
-        ".graphqlconfig"
-    );
+    const pathToConfig = path.join(cwd, ".graphqlconfig");
 
     const config = loadConfig(pathToConfig, opts.project);
     // console.log(config);
@@ -35,8 +32,8 @@ async function main() {
     const distDir = opts.dist
         ? path.resolve(cwd, opts.dist)
         : config.configDir
-        ? path.resolve(config.configDir, "dist")
-        : path.resolve(cwd, "dist");
+            ? path.resolve(config.configDir, "dist")
+            : path.resolve(cwd, "dist");
     const ctx = {
         config,
         projectRootDir: config.configDir || cwd,
@@ -52,7 +49,7 @@ async function main() {
 process.on("unhandledRejection", console.error);
 main()
     .then(() => {
-        console.log("Completed!"); 
+        console.log("Completed!");
     })
     .catch(e => {
         console.error(e, e.message, e.stack);

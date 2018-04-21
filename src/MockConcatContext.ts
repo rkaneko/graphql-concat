@@ -1,21 +1,15 @@
-import {
-    GraphQLProjectConfig
-} from "graphql-config";
+import { GraphQLProjectConfig } from "graphql-config";
 
 const pathToProjectRoot = "/path/to/project";
 
 const MockGraphQLResolvedConfigData = {
     schemaPath: `${pathToProjectRoot}/schema.graphql`,
-    includes: [
-        "./graphql/**/*.graphql"
-    ],
-    excludes: [
-        "./graphql/exclude/**/*.graphql"
-    ],
+    includes: ["./graphql/**/*.graphql"],
+    excludes: ["./graphql/exclude/**/*.graphql"],
     extensions: {
-        "endpoints": {
-            "dev": {
-                "url": "https://api.github.com/graphql"
+        endpoints: {
+            dev: {
+                url: "https://api.github.com/graphql"
             }
         }
     }
@@ -24,7 +18,11 @@ const MockGraphQLResolvedConfigData = {
 const projects = {
     github: MockGraphQLResolvedConfigData
 };
-const MockGraphQLConfigData = Object.assign({}, MockGraphQLResolvedConfigData, projects);
+const MockGraphQLConfigData = Object.assign(
+    {},
+    MockGraphQLResolvedConfigData,
+    projects
+);
 
 const MockGraphQLProjectConfig = new GraphQLProjectConfig(
     MockGraphQLConfigData,

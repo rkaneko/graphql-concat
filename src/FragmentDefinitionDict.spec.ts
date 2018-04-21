@@ -1,13 +1,8 @@
 import test from "ava";
 
-import {
-    FragmentDefinitionNode
-} from "graphql/language";
+import { FragmentDefinitionNode } from "graphql/language";
 
-import {
-    FragmentDefinitionDict,
-    merge
-} from "./FragmentDefinitionDict";
+import { FragmentDefinitionDict, merge } from "./FragmentDefinitionDict";
 
 function fdOf(name: string): FragmentDefinitionNode {
     return {
@@ -46,11 +41,14 @@ function fdOf(name: string): FragmentDefinitionNode {
 }
 
 function fdDictFrom(...names: string[]): FragmentDefinitionDict {
-    return names.reduce<FragmentDefinitionDict>((dict, name) => {
-        const fd = fdOf(name);
-        dict.set(name, fd);
-        return dict;
-    }, new Map() as FragmentDefinitionDict);
+    return names.reduce<FragmentDefinitionDict>(
+        (dict, name) => {
+            const fd = fdOf(name);
+            dict.set(name, fd);
+            return dict;
+        },
+        new Map() as FragmentDefinitionDict
+    );
 }
 
 test("Can merge two FragmentDefinitionDict.", t => {

@@ -1,16 +1,10 @@
-import {
-    DocumentNode,
-    FragmentDefinitionNode
-} from "graphql/language";
+import { DocumentNode, FragmentDefinitionNode } from "graphql/language";
 
 import ConcatContext from "./ConcatContext";
 import createDistPath from "./createDistPath";
 import createFragmentDefinitionDict from "./createFragmentDefinitionDict";
 import findGraphQL from "./findGraphQL";
-import {
-    FragmentDefinitionDict,
-    merge
-} from "./FragmentDefinitionDict";
+import { FragmentDefinitionDict, merge } from "./FragmentDefinitionDict";
 
 import readFileAsync from "./util/fs/readFileAsync";
 import containsOperationDefinition from "./util/graphql/containsOperationDefinition";
@@ -34,10 +28,8 @@ async function preprocess(ctx: ConcatContext): Promise<Preprocessed> {
         const gql = await readFileAsync(fullpath, FILE_READ_OPTS);
         const dn = sourceToDocumentNode(gql);
 
-        const dict = createFragmentDefinitionDict(
-            dn.definitions
-        );
-        fddict = fddict ? merge(dict, fddict): dict;
+        const dict = createFragmentDefinitionDict(dn.definitions);
+        fddict = fddict ? merge(dict, fddict) : dict;
 
         if (containsOperationDefinition(dn)) {
             const distpath = createDistPath(ctx, fullpath);

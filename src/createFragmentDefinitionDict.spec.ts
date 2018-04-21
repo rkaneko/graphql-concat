@@ -8,7 +8,13 @@ import sourceToDocumentNode from "./util/graphql/sourceToDocumentNode";
 import createFragmentDefinitionDict from "./createFragmentDefinitionDict";
 
 test("Should be created FragmentDefinitionDict from definitions.", async t => {
-    const pathToGraphQL = path.join(__dirname, "..", "graphql", "fragment", "CommitEntryTree.graphql");
+    const pathToGraphQL = path.join(
+        __dirname,
+        "..",
+        "graphql",
+        "fragment",
+        "CommitEntryTree.graphql"
+    );
     const graphql = await readFileAsync(pathToGraphQL, { encoding: "utf-8" });
     const documentNode = sourceToDocumentNode(graphql);
 

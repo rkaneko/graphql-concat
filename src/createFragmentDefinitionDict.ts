@@ -1,13 +1,10 @@
-import {
-    DefinitionNode,
-    FragmentDefinitionNode
-} from "graphql/language/ast";
+import { DefinitionNode, FragmentDefinitionNode } from "graphql/language/ast";
 
-import {
-    FragmentDefinitionDict
-} from "./FragmentDefinitionDict";
+import { FragmentDefinitionDict } from "./FragmentDefinitionDict";
 
-function createFragmentDefinitionDict(definitions: DefinitionNode[]): FragmentDefinitionDict {
+function createFragmentDefinitionDict(
+    definitions: DefinitionNode[]
+): FragmentDefinitionDict {
     if (definitions.length === 0) {
         return new Map() as FragmentDefinitionDict;
     }
@@ -16,12 +13,13 @@ function createFragmentDefinitionDict(definitions: DefinitionNode[]): FragmentDe
             const fragmentDefinition = definition as FragmentDefinitionNode;
             const { value } = fragmentDefinition.name;
             if (!value || typeof value !== "string") {
-                throw new Error("FragmentDefinitionNode must have a name property.");
+                throw new Error(
+                    "FragmentDefinitionNode must have a name property."
+                );
             }
             if (dict.has(value)) {
                 throw new Error(`FragmentDefinitionNode's name: ${value} is duplicated.
-                    This is not supported on graphql-concat.`
-                );
+                    This is not supported on graphql-concat.`);
             }
             dict.set(value, fragmentDefinition);
         }
