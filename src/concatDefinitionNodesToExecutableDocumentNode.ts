@@ -24,17 +24,16 @@ function concatDefinitionNodesToExecutableDocumentNode(
                 `Not found FragmentDefinitionNode by name: ${name}.`
             );
         }
-        fdns.push(fdn);
-        return fdns;
+        return [...fdns, fdn];
     }, []);
     const concatenatedDefinitions = fragmentDefinitionNodes.reduce<
-        DefinitionNode[]
+        ReadonlyArray<DefinitionNode>
     >((dns, fdn) => {
         if (!containsFragmentDefinitionNode(dns, fdn.name)) {
-            dns.push(fdn);
+            return [...dns, fdn];
         }
         return dns;
-    }, ([] as DefinitionNode[]).concat(documentNode.definitions));
+    }, ([] as ReadonlyArray<DefinitionNode>).concat(documentNode.definitions));
     const concatenatedDocumentNode = Object.assign({}, documentNode, {
         definitions: concatenatedDefinitions
     });
@@ -54,7 +53,7 @@ function concatDefinitionNodesToExecutableDocumentNode(
 }
 
 function containsFragmentDefinitionNode(
-    definitions: DefinitionNode[],
+    definitions: ReadonlyArray<DefinitionNode>,
     name: NameNode
 ): boolean {
     return definitions.reduce<boolean>((contains, dn) => {
