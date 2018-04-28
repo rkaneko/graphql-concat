@@ -3,7 +3,7 @@ import { DefinitionNode, FragmentDefinitionNode } from "graphql/language/ast";
 import { FragmentDefinitionDict } from "./FragmentDefinitionDict";
 
 function createFragmentDefinitionDict(
-    definitions: DefinitionNode[]
+    definitions: ReadonlyArray<DefinitionNode>
 ): FragmentDefinitionDict {
     if (definitions.length === 0) {
         return new Map() as FragmentDefinitionDict;
