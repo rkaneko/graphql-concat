@@ -4,6 +4,9 @@
     ":preserveSemverRanges"
   ],
   "upgradeInRange": true,
+  "labels": [
+    "ci"
+  ],
   "reviewers": [
     "rkaneko"
   ],
