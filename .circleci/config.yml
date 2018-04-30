@@ -28,7 +28,11 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm run check:prettier
       - run: npm run tslint
-      - run: npm test
+      - run: npm run coverage
+      - run:
+          name: Post coverage report to Codecov
+          command: |
+            curl -s https://codecov.io/bash | bash -s -- -t ${CODECOV_TOKEN}
 
   node8:
     <<: *node-base
