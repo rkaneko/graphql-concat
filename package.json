@@ -20,8 +20,10 @@
     "test": "npm-run-all clean build ava",
     "ava": "ava",
     "watch:ava": "ava --watch",
-    "clean": "rimraf dist",
+    "clean": "rimraf dist .nyc_output coverage",
+    "nyc": "nyc ava",
     "watch:test": "npm-run-all clean build --print-label --parallel watch:build watch:ava",
+    "coverage": "npm-run-all clean build nyc",
     "check:ciconfig": "curl -s https://circle-downloads.s3.amazonaws.com/releases/build_agent_wrapper/circleci | bash -s -- config validate -c .circleci/config.yml"
   },
   "repository": {
@@ -39,6 +41,22 @@
     "failFast": true,
     "failWithoutAssertions": false,
     "tap": true
+  },
+  "nyc": {
+    "reporter": [
+      "json",
+      "text"
+    ],
+    "report-dir": "./coverage",
+    "check-coverage": false,
+    "per-file": true,
+    "lines": 90,
+    "statements": 90,
+    "functions": 90,
+    "branches": 90,
+    "exclude": [
+      "dist/**/*.spec.js"
+    ]
   },
   "prettier": {
     "parser": "typescript",
@@ -63,6 +81,7 @@
     "ava": "0.25.0",
     "graphql": "0.13.2",
     "npm-run-all": "4.1.2",
+    "nyc": "^11.7.1",
     "prettier": "1.12.1",
     "rimraf": "2.6.2",
     "tslint": "5.9.1",

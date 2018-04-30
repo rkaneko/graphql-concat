@@ -9,6 +9,7 @@ graphql-concat
 [![dependencies status][deps-image]][deps-url]
 [![devDependencies status][dev-deps-image]][dev-deps-url]  
 [![code style: prettier][prettier-image]][prettier-url]
+[![codecov][coverage-image]][coverage-url]
 
 
 **This project is on beta, so don't use this package yet**.
@@ -44,8 +45,8 @@ TODO
 [dev-deps-image]: https://david-dm.org/rkaneko/graphql-concat/dev-status.svg
 [dev-deps-url]: https://david-dm.org/rkaneko/david#info=devDependencies
 [node-version]: https://img.shields.io/badge/Node.js%20support-v8,v9-brightgreen.svg
-[coverage-image]: https://img.shields.io/coveralls/rkaneko/graphql-concat/master.svg
-[coverage-url]: https://coveralls.io/github/rkaneko/graphql-concat?branch=master
+[coverage-image]: https://codecov.io/gh/rkaneko/graphql-concat/branch/master/graph/badge.svg
+[coverage-url]: https://codecov.io/gh/rkaneko/graphql-concat
 [license]: https://img.shields.io/npm/l/graphql-concat.svg
 
 [prettier-image]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=shield
