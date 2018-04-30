@@ -2,11 +2,12 @@ graphql-concat
 ===
 
 [![npm version][npm-image]][npm-url]
-[![Downloads/month][npm-donwload-image]][npm-trends-url]
+[![Downloads/month][npm-donwload-image]][npm-trends-url]  
 [![License: MIT][license]](https://opensource.org/licenses/MIT)
-[![build status][circleci-image]][circleci-url]
+![supports Node.js][node-version]  
+[![build status][circleci-image]][circleci-url]  
 [![dependencies status][deps-image]][deps-url]
-[![devDependencies status][deps-image]][dev-deps-url]
+[![devDependencies status][dev-deps-image]][dev-deps-url]  
 [![code style: prettier][prettier-image]][prettier-url]
 
 
