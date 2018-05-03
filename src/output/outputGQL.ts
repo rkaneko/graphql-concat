@@ -1,16 +1,15 @@
 import { print } from "graphql/language";
 
-import { ExecutableDocumentNodeDict } from "../compute";
-import ConcatContext from "../ConcatContext";
-import { Preprocessed } from "../preprocess";
+import Computed from "../api/Computed";
+import * as OptionOutput from "../api/OptionOutput";
 
 import writeFiles from "./writeFiles";
 
 async function outputGQL(
-    ctx: ConcatContext,
-    executableDocumentNodeDict: ExecutableDocumentNodeDict
+    output: OptionOutput.OptionOutput,
+    executableDocumentNodeDict: Computed
 ): Promise<void> {
-    if (ctx.output === "stdout") {
+    if (output === OptionOutput.OUTPUT_STDOUT) {
         printout(executableDocumentNodeDict);
         return Promise.resolve();
     } else {
@@ -27,14 +26,14 @@ async function outputGQL(
     }
 }
 
-function printout(dict: ExecutableDocumentNodeDict): void {
-    Array.from(dict.keys()).forEach(distpath => {
+function printout(computed: Computed): void {
+    Array.from(computed.keys()).forEach(distpath => {
         /* tslint:disable no-console */
         console.log(
             "----------------------------------------------------------------------"
         );
         console.log(`dist: ${distpath}\n`);
-        console.log(print(dict.get(distpath)));
+        console.log(print(computed.get(distpath)));
         /* tslint:enable no-console */
     });
 }
