@@ -1,14 +1,14 @@
 import { DocumentNode, FragmentDefinitionNode } from "graphql/language";
 
-import ConcatContext from "./ConcatContext";
+import ConcatOption from "./ConcatOption";
 import createDistPath from "./createDistPath";
 import createFragmentDefinitionDict from "./createFragmentDefinitionDict";
 import findGraphQL from "./findGraphQL";
 import { FragmentDefinitionDict, merge } from "./FragmentDefinitionDict";
 
-import readFileAsync from "./util/fs/readFileAsync";
-import containsOperationDefinition from "./util/graphql/containsOperationDefinition";
-import sourceToDocumentNode from "./util/graphql/sourceToDocumentNode";
+import readFileAsync from "../util/fs/readFileAsync";
+import containsOperationDefinition from "../util/graphql/containsOperationDefinition";
+import sourceToDocumentNode from "../util/graphql/sourceToDocumentNode";
 
 const FILE_READ_OPTS = { encoding: "utf-8" };
 
@@ -19,8 +19,15 @@ export interface Preprocessed {
     readonly inexecutableDocumentNodeDict: InexecutableDocumentNodeDict;
 }
 
-async function preprocess(ctx: ConcatContext): Promise<Preprocessed> {
-    const fullpaths = findGraphQL(ctx);
+async function preprocess(
+    projectRootDir: string,
+    option: ConcatOption
+): Promise<Preprocessed> {
+    const fullpaths = findGraphQL(
+        projectRootDir,
+        option.includes,
+        option.excludes
+    );
     const inexecutableDocumentNodeDict = new Map<string, DocumentNode>();
 
     let fddict = new Map<string, FragmentDefinitionNode>();
@@ -32,7 +39,12 @@ async function preprocess(ctx: ConcatContext): Promise<Preprocessed> {
         fddict = fddict ? merge(dict, fddict) : dict;
 
         if (containsOperationDefinition(dn)) {
-            const distpath = createDistPath(ctx, fullpath);
+            const distpath = createDistPath(
+                projectRootDir,
+                option.lang,
+                option.dist,
+                fullpath
+            );
             inexecutableDocumentNodeDict.set(distpath, dn);
         }
     }

@@ -1,7 +1,7 @@
 {
   "projects": {
     "github": {
-      "schemaPath": "./graphql/schema.graphql",
+      "schemaPath": "./graphql/schema.json",
       "includes": [
         "./graphql/**/*.graphql"
       ],

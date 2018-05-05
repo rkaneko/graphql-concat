@@ -5,8 +5,8 @@ import {
     NameNode
 } from "graphql/language/ast";
 
+import findAllFragmentSpreadNodes from "../util/graphql/findAllFragmentSpreadNodes";
 import { FragmentDefinitionDict } from "./FragmentDefinitionDict";
-import findAllFragmentSpreadNodes from "./util/graphql/findAllFragmentSpreadNodes";
 
 function concatDefinitionNodesToExecutableDocumentNode(
     documentNode: DocumentNode,

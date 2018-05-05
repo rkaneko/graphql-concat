@@ -2,17 +2,16 @@ import { DocumentNode, print } from "graphql/language";
 
 import path from "path";
 
-import { ExecutableDocumentNodeDict } from "../compute";
-import ConcatContext from "../ConcatContext";
-import { Preprocessed } from "../preprocess";
+import Computed from "../api/Computed";
+import * as OptionOutput from "../api/OptionOutput";
 
 import writeFiles from "./writeFiles";
 
 async function outputTS(
-    ctx: ConcatContext,
-    executableDocumentNodeDict: ExecutableDocumentNodeDict
+    output: OptionOutput.OptionOutput,
+    executableDocumentNodeDict: Computed
 ): Promise<void> {
-    if (ctx.output === "stdout") {
+    if (output === OptionOutput.OUTPUT_STDOUT) {
         printout(executableDocumentNodeDict);
         return Promise.resolve();
     } else {
@@ -24,10 +23,10 @@ async function outputTS(
                         `Not found value from dict by key: ${distpath} .`
                     );
                 }
-                const output = createTSOutput(distpath, dn);
+                const out = createTSOutput(distpath, dn);
                 return {
                     distpath,
-                    output
+                    output: out
                 };
             }
         );
@@ -35,9 +34,9 @@ async function outputTS(
     }
 }
 
-function printout(dict: ExecutableDocumentNodeDict): void {
-    Array.from(dict.keys()).forEach(distpath => {
-        const dn = dict.get(distpath);
+function printout(computed: Computed): void {
+    Array.from(computed.keys()).forEach(distpath => {
+        const dn = computed.get(distpath);
         if (!dn) {
             throw new Error(`Not found value from dict by key: ${distpath} .`);
         }
