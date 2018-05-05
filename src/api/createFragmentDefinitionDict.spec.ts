@@ -2,14 +2,15 @@ import test from "ava";
 
 import path from "path";
 
-import readFileAsync from "./util/fs/readFileAsync";
-import sourceToDocumentNode from "./util/graphql/sourceToDocumentNode";
+import readFileAsync from "../util/fs/readFileAsync";
+import sourceToDocumentNode from "../util/graphql/sourceToDocumentNode";
 
 import createFragmentDefinitionDict from "./createFragmentDefinitionDict";
 
 test("Should be created FragmentDefinitionDict from definitions.", async t => {
     const pathToGraphQL = path.join(
         __dirname,
+        "..",
         "..",
         "graphql",
         "fragment",
