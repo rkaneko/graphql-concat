@@ -1,0 +1,8 @@
+mutation CreateAuthor($input: CreateAuthorInput!) {
+  createAuthor(input: $input) {
+    author {
+      ... Author
+    }
+    clientMutationId
+  } 
+}

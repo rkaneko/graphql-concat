@@ -1,0 +1,6 @@
+fragment Author on Author {
+  id
+  firstName
+  lastName
+  birthDate
+}

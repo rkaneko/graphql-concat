@@ -1,0 +1,18 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "gqlcat": "node ../../dist/cli/gqlcat -i \"./graphql/src/**/*.graphql\" -d ./graphql/dist -o file -l gql -s ./graphql/schema.json",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Ryota Kaneko <kanek.o.dev@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^0.13.2",
+    "graphql-tools": "^3.0.0"
+  }
+}

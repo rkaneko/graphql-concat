@@ -2,6 +2,7 @@ node_modules/
 
 dist/
 !graphql/dist/
+!examples/library/graphql/dist/
 
 .nyc_output/
 coverage/
