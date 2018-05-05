@@ -1,0 +1,22 @@
+query GetBooks {
+  books {
+    ...Book
+  }
+}
+
+fragment Book on Book {
+  id
+  name
+  isbn
+  authorId
+  author {
+    ...Author
+  }
+}
+
+fragment Author on Author {
+  id
+  firstName
+  lastName
+  birthDate
+}

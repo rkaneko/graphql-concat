@@ -1,0 +1,15 @@
+mutation CreateAuthor($input: CreateAuthorInput!) {
+  createAuthor(input: $input) {
+    author {
+      ...Author
+    }
+    clientMutationId
+  }
+}
+
+fragment Author on Author {
+  id
+  firstName
+  lastName
+  birthDate
+}

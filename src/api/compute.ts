@@ -43,9 +43,7 @@ export default async function compute(
             } .`
         );
     }
-    const schema = buildClientSchema(schemaJson.data)
-        ? schemaJson.data
-        : schemaJson;
+    const schema = buildClientSchema(schemaJson.data);
     for (const documentNode of computed.values()) {
         validateDocumentNode(schema, documentNode);
     }

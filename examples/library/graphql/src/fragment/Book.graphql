@@ -1,0 +1,9 @@
+fragment Book on Book {
+  id
+  name
+  isbn
+  authorId
+  author {
+    ... Author
+  }
+}
