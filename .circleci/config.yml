@@ -41,4 +41,4 @@ jobs:
   node9:
     <<: *node-base
     docker:
-      - image: node:9@sha256:f1d26f827bb796baf568203f8d42c20cb59fb55a81ab35de3d1dd09dd010c816
+      - image: node:9@sha256:ac2d070a0d388ba43a9aff4cd47ab555c4057c318e642ed8a99225f43e66e49d
