@@ -1,4 +1,4 @@
-graphql-concat
+:smiley_cat: graphql-concat :smile_cat:
 ===
 
 [![npm version][npm-image]][npm-url]
@@ -12,23 +12,90 @@ graphql-concat
 [![codecov][coverage-image]][coverage-url]
 
 
-**This project is on beta, so don't use this package yet**.
+### TL:DR
 
-### Motivation
+ This CLI is used for sharing GraphQL `FragmentDefinitions` across GraphQL `Operations`. `gqlcat` concatenates `FragmentDefinitions` into GraphQL `Operation` (e.g. Query or Mutation) which need Fragments to execute.
 
-TODO
+```txt
+   +---------------------------+
+   |   GraphQL file includes   |
+   |  OperationDefinitionNode  +--------------+
+   | (e.g. Query and Mutation) |              |
+   +---------------------------+              |
+                                              |
+                                              |
+   +---------------------------+              |                                        +--------------------------------------+
+   |   GraphQL file includes   |              |                                        |   Concatenated GraphQL DocumentNode  |
+   |  OperationDefinitionNode  +---------+    |                              +-------> |    you can execute in your program   |
+   | (e.g. Query and Mutation) |         |    +-------> +------------+       |         |  like graphiql or TypeScript program |
+   +---------------------------+         +------------> |            +-------+         +--------------------------------------+
+                                                        |   gqlcat   |
+                                         +------------> |            +-------+         +--------------------------------------+
++----------------------------------+     |    +-------> +------------+       |         |   Concatenated GraphQL DocumentNode  |
+|      GraphQL file includes       |     |    |                              +-------> |    you can execute in your program   |
+|      FragmentDefinitionNode      +-----+    |                                        |  like graphiql or TypeScript program |
+|         (e.g. Fragment)          |          |                                        +--------------------------------------+
+|  you want to share between files |          |
+------------------------------------          |
+                                              |
+                                              |
++----------------------------------+          |
+|      GraphQL file includes       |          |
+|      FragmentDefinitionNode      +----------+
+|         (e.g. Fragment)          |
+|  you want to share between files |
++----------------------------------+
 
-### Document
+```
 
-TODO
+### Usage
 
-### Development
+```bash
+$ gqlcat -h
 
-TODO
+graphql-concat
 
-### Changelog
+  Concatenate multiple GraphQL files to executable operation files. 
 
-TODO
+Synopsis
+
+  $ gqlcat [--include glob] [--execlude glob] [--dist path] [--output           
+  stdout|file] [--lang gql|ts] [--schema path] [--project graphql-project-name] 
+  $ gqlcat --help                                                               
+
+Options
+
+  -i, --include string[]   Files you want to include. Default is "./**/*.graphql" "./**/*.gql". You can  
+                           specify this option multiply. This option also can be specified via           
+                           .graphqlconfig includes values.                                               
+  -e, --exclude string[]   Files you want to exclude. Default is not set. You can specify this option    
+                           multiply. This option also can be specified via .graphqlconfig excludes       
+                           values.                                                                       
+  -d, --dist string        Path to distination of gqlcat outputs. Default is dist.                       
+  -o, --output type        Output type. Default is stdout.                                               
+  -l, --lang type          Language type. Default is gql.                                                
+  -s, --schema string      Path to schema.json of your project. This is used for validating concatenated 
+                           files. Default is not set, so validation isn't executed. This option also     
+                           can be specified via .graphqlconfig schemaPath value.                         
+  -p, --project string     Your project name. If your .graphqlconfig file has multiple project configs,  
+                           you must specify this option. Default is not set.                             
+  -h, --help               Display usage.                                                                
+
+Examples
+
+  Case: Specifying all options via command line args.   $ gqlcat -i "./src/**/*.graphql" -i "./src/**/*.gql" -e "./dist/**/*.graphql" -d ./dist -o file -l ts -s  
+                                                        ./src/schema.json                                                                                         
+  Case: Using your .graphqlconfig.                      $ gqlcat -d ./dist -o stdout -l gql -p github                                                             
+
+About
+
+  Project home: https://github.com/rkaneko/graphql-concat 
+
+```
+
+### Examples
+
+Please see [Library example](./examples/library).
 
 ### License
 
