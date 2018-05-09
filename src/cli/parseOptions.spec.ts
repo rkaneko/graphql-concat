@@ -104,7 +104,10 @@ test("Default Options should be appropriate when not being specified.", t => {
     const projectRootDir = process.cwd();
 
     const expected = {
-        includes: [],
+        includes: [
+            path.join(projectRootDir, "./**/*.graphql"),
+            path.join(projectRootDir, "./**/*.gql")
+        ],
         excludes: [],
         dist: path.join(projectRootDir, "dist"),
         output: OptionOutput.OUTPUT_STDOUT as OptionOutput.OUTPUT_STDOUT,

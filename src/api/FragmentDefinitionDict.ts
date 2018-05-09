@@ -17,7 +17,8 @@ export function merge(
             const [name, fdn] = entry;
             if (cloned.has(name)) {
                 throw new Error(`FragmentDefinitionNode's name: ${name} is duplicated.
-                This is not supported on graphql-concat.`);
+                This is not supported on graphql-concat.
+                You don't exclude dist directory using CLI option 'exclude', do you?`);
             }
             cloned.set(name, fdn);
         }
