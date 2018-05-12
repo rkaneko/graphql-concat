@@ -56,6 +56,10 @@ graphql-concat
 
   Concatenate multiple GraphQL files to executable operation files. 
 
+Version
+
+  0.8.0-beta.4
+
 Synopsis
 
   $ gqlcat [--include glob] [--execlude glob] [--dist path] [--output           
@@ -79,6 +83,7 @@ Options
   -p, --project string     Your project name. If your .graphqlconfig file has multiple project configs,  
                            you must specify this option. Default is not set.                             
   -h, --help               Display usage.                                                                
+  -v, --version            Display version.
 
 Examples
 
@@ -88,7 +93,7 @@ Examples
 
 About
 
-  Project home: https://github.com/rkaneko/graphql-concat 
+  Project home: https://github.com/rkaneko/graphql-concat
 
 ```
 

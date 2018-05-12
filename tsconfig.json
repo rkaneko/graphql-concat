@@ -18,6 +18,10 @@
       "ES2016",
       "ES2017",
       "esnext.asynciterable"
+    ],
+    "typeRoots": [
+      "node_modules/@types",
+      "./src/@types"
     ]
   },
   "include": [

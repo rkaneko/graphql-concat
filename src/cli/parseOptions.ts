@@ -20,7 +20,8 @@ export default function parseOptions(
         lang,
         schema,
         project,
-        help
+        help,
+        version
     } = commandLineArgs(optionDefinitions, options);
     return {
         includes: (include as ReadonlyArray<string>).map(i =>
@@ -34,6 +35,7 @@ export default function parseOptions(
         lang,
         schema: schema ? toAbsolutePathLike(schema, projectRootDir) : schema,
         project,
-        help
+        help,
+        version
     };
 }

@@ -11,6 +11,7 @@ import path from "path";
 
 import parseOptions from "./parseOptions";
 import usage from "./usage";
+import VERSION from "./version";
 
 import api from "../api";
 import loadConfig from "../config/loadConfig";
@@ -22,6 +23,11 @@ async function gqlcat(): Promise<void> {
     if (optionViaCLI.help) {
         // tslint:disable-next-line no-console
         console.log(usage);
+        process.exit(0);
+    }
+    if (optionViaCLI.version) {
+        // tslint:disable-next-line no-console
+        console.log(VERSION);
         process.exit(0);
     }
 
