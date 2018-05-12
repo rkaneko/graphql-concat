@@ -1,7 +1,9 @@
 {
   "extends": [
     "config:base",
-    ":preserveSemverRanges"
+    ":preserveSemverRanges",
+    "default:automergeDigest",
+    "default:automergeBranchPush"
   ],
   "upgradeInRange": true,
   "labels": [
