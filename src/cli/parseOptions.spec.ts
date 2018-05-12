@@ -3,6 +3,8 @@ import path from "path";
 
 import parseOptions from "./parseOptions";
 
+import VERSION from "./version";
+
 import * as OptionLang from "../api/OptionLang";
 import * as OptionOutput from "../api/OptionOutput";
 
@@ -35,7 +37,8 @@ test("Should parse options specified short options.", t => {
         optionSchema,
         "-p",
         optionProject,
-        "-h"
+        "-h",
+        "-v"
     ];
     const projectRootDir = "/path/to/project";
 
@@ -47,7 +50,8 @@ test("Should parse options specified short options.", t => {
         lang: OptionLang.LANG_TS as OptionLang.LANG_TS,
         schema: path.join(projectRootDir, optionSchema),
         project: optionProject,
-        help: true
+        help: true,
+        version: true
     };
 
     const actual = parseOptions(argv, projectRootDir);
@@ -77,7 +81,8 @@ test("Should parse options specified long options.", t => {
         optionSchema,
         "--project",
         optionProject,
-        "--help"
+        "--help",
+        "--version"
     ];
     const projectRootDir = process.cwd();
 
@@ -89,7 +94,8 @@ test("Should parse options specified long options.", t => {
         lang: OptionLang.LANG_TS as OptionLang.LANG_TS,
         schema: path.join(projectRootDir, optionSchema),
         project: optionProject,
-        help: true
+        help: true,
+        version: true
     };
 
     const actual = parseOptions(argv, projectRootDir);
@@ -114,7 +120,8 @@ test("Default Options should be appropriate when not being specified.", t => {
         lang: OptionLang.LANG_GQL as OptionLang.LANG_GQL,
         schema: undefined,
         project: undefined,
-        help: false
+        help: false,
+        version: false
     };
 
     const actual = parseOptions(argv, projectRootDir);

@@ -70,6 +70,13 @@ const optionDefinitions = [
         type: Boolean,
         defaultValue: false,
         description: "Display usage."
+    },
+    {
+        name: "version",
+        alias: "v",
+        type: Boolean,
+        defaultValue: false,
+        description: "Display version."
     }
 ];
 

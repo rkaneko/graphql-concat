@@ -10,4 +10,5 @@ export default interface ConcatOption {
     readonly schema?: string;
     readonly project?: string;
     readonly help: boolean;
+    readonly version: boolean;
 }

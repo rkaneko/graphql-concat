@@ -1,5 +1,7 @@
 import commandLineUsage from "command-line-usage";
 
+import VERSION from "./version";
+
 import * as OptionLang from "../api/OptionLang";
 import * as OptionOutput from "../api/OptionOutput";
 import optionDefinitions from "./optionDefinitions";
@@ -9,6 +11,10 @@ const sections = [
         header: "graphql-concat",
         content:
             "Concatenate multiple GraphQL files to executable operation files."
+    },
+    {
+        header: "Version",
+        content: VERSION
     },
     {
         header: "Synopsis",
