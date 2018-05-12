@@ -58,7 +58,7 @@ graphql-concat
 
 Version
 
-  0.8.0-beta.4
+  0.9.0
 
 Synopsis
 
