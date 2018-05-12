@@ -94,7 +94,7 @@
   },
   "dependencies": {
     "command-line-args": "^5.0.2",
-    "command-line-usage": "^5.0.4",
+    "command-line-usage": "^5.0.5",
     "minimatch": "^3.0.4",
     "mkdirp": "^0.5.1"
   },
