@@ -6,7 +6,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">= 8.11.3"
+    "node": ">= 10.7.0"
   },
   "bin": {
     "gqlcat": "dist/cli/gqlcat.js"
