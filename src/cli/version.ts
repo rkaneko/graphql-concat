@@ -1,3 +1,3 @@
 import * as packageJson from "../../package.json";
-const VERSION = (<any>packageJson).version;
+const VERSION = (packageJson as any).version;
 export default VERSION;
