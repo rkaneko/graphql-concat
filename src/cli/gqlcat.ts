@@ -49,7 +49,12 @@ async function gqlcat(): Promise<void> {
     await run(computed, concatOption.output, concatOption.lang);
 }
 
-process.on("unhandledRejection", console.error);
+process.on("unhandledRejection", (reason, p) => {
+    // tslint:disable-next-line no-console
+    console.error("Unhandled Rejection at: ", p, "reason: ", reason);
+    process.exit(1);
+});
+
 gqlcat()
     .then(() => {
         // tslint:disable-next-line no-console
