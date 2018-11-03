@@ -115,7 +115,7 @@ Please see [Library example](./examples/library).
 [deps-url]: https://david-dm.org/rkaneko/graphql-concat
 [dev-deps-image]: https://david-dm.org/rkaneko/graphql-concat/dev-status.svg
 [dev-deps-url]: https://david-dm.org/rkaneko/david#info=devDependencies
-[node-version]: https://img.shields.io/badge/Node.js%20support-v8,v9-brightgreen.svg
+[node-version]: https://img.shields.io/badge/Node.js%20support-v8,v10,v11-brightgreen.svg
 [coverage-image]: https://codecov.io/gh/rkaneko/graphql-concat/branch/master/graph/badge.svg
 [coverage-url]: https://codecov.io/gh/rkaneko/graphql-concat
 [license]: https://img.shields.io/npm/l/graphql-concat.svg
