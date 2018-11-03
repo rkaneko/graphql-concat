@@ -3,7 +3,8 @@ workflows:
   node-build:
     jobs:
       - node8
-      - node9
+      - node10
+      - node11
 
 version: 2
 jobs:
@@ -38,7 +39,11 @@ jobs:
     <<: *node-base
     docker:
       - image: node:8@sha256:7b65413af120ec5328077775022c78101f103258a1876ec2f83890bce416e896
-  node9:
+  node10:
     <<: *node-base
     docker:
-      - image: node:9@sha256:cddc729ef8326f7e8966c246ba2e87bad4c15365494ff3d681fa6f022cdab041
+      - image: node:10
+  node11:
+    <<: *node-base
+    docker:
+      - image: node:11
