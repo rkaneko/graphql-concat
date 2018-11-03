@@ -14,13 +14,7 @@ export default function writeFileAsync(
         mode?: number;
         flag?: string;
     }
-) {
+): Promise<void> {
     const parentDir = path.dirname(file);
-    return mkdirpAsync(parentDir).then(dir => {
-        if (dir) {
-            // tslint:disable-next-line no-console
-            console.log(`Created new dir: ${dir} .`);
-        }
-        return promisified(file, data, options);
-    });
+    return mkdirpAsync(parentDir).then(() => promisified(file, data, options));
 }
