@@ -18,7 +18,9 @@ query IntrospectionQuery {
       args {
         ...InputValue
       }
-      locations
+      onOperation
+      onFragment
+      onField
     }
   }
 }
