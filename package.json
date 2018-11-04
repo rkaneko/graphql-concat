@@ -1,6 +1,6 @@
 {
   "name": "graphql-concat",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "description": "A CLI tool to concatenate GraphQL files into executable GraphQL files.",
   "files": [
     "dist"
