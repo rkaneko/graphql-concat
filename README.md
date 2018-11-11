@@ -13,7 +13,7 @@
 
 ### TL;DR
 
- This CLI is used for sharing GraphQL `FragmentDefinitions` across GraphQL `Operations`. `gqlcat` concatenates `FragmentDefinitions` into GraphQL `Operation` (e.g. Query or Mutation) which need Fragments to execute on the basis of GraphQL AST.
+ This CLI is used for sharing GraphQL `FragmentDefinitions` across GraphQL `Operations`. On the basis of GraphQL AST, `gqlcat` concatenates `FragmentDefinitions` into GraphQL `Operation` (e.g. Query or Mutation) which needs Fragments to be executed.
 
 ```txt
    +---------------------------+
