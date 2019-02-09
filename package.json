@@ -86,7 +86,7 @@
     "graphql-config": "^2.2.1",
     "npm-run-all": "^4.1.5",
     "nyc": "^13.1.0",
-    "prettier": "^1.16.3",
+    "prettier": "^1.16.4",
     "rimraf": "^2.6.3",
     "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.18.0",
