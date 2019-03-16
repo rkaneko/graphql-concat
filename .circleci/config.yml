@@ -38,7 +38,7 @@ jobs:
   node8:
     <<: *node-base
     docker:
-      - image: node:8@sha256:fec2d6c325686988c4e0bf1b17cd32954422333d24ed6a97c28c8570054a6e1d
+      - image: node:8@sha256:c151597d05a3c8c4e7b2e988f71c8cd645235d96f39a47b16b1930ef9e7a5aab
   node10:
     <<: *node-base
     docker:
