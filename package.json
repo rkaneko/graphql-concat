@@ -90,7 +90,7 @@
     "rimraf": "^2.6.3",
     "tslint": "^5.17.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.5.1"
   },
   "dependencies": {
     "command-line-args": "^5.1.1",
