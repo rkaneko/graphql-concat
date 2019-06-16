@@ -13,27 +13,27 @@ async function outputGQL(
         printout(executableDocumentNodeDict);
         return Promise.resolve();
     } else {
-        const outputFiles = Array.from(executableDocumentNodeDict.keys()).map(
-            distpath => {
-                const gql = print(executableDocumentNodeDict.get(distpath));
-                return {
-                    distpath,
-                    output: gql
-                };
-            }
-        );
+        const outputFiles = Array.from(
+            executableDocumentNodeDict.entries()
+        ).map(([distpath, dn]) => {
+            const gql = print(dn);
+            return {
+                distpath,
+                output: gql
+            };
+        });
         return writeFiles(outputFiles);
     }
 }
 
 function printout(computed: Computed): void {
-    Array.from(computed.keys()).forEach(distpath => {
+    Array.from(computed.entries()).forEach(([distpath, dn]) => {
         /* tslint:disable no-console */
         console.log(
             "----------------------------------------------------------------------"
         );
         console.log(`dist: ${distpath}\n`);
-        console.log(print(computed.get(distpath)));
+        console.log(print(dn));
         /* tslint:enable no-console */
     });
 }
