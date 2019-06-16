@@ -38,9 +38,7 @@ export default async function compute(
     const schemaJson = require(option.schema);
     if (!schemaJson.data && !schemaJson.__schema) {
         throw new Error(
-            `A valid GraphQL introspection query result should be contained in : ${
-                option.schema
-            } .`
+            `A valid GraphQL introspection query result should be contained in : ${option.schema} .`
         );
     }
     const schema = buildClientSchema(schemaJson.data);

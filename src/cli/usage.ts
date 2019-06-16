@@ -36,15 +36,11 @@ const sections = [
         content: [
             {
                 desc: "Case: Specifying all options via command line args.",
-                example: `$ gqlcat -i "./src/**/*.graphql" -i "./src/**/*.gql" -e "./dist/**/*.graphql" -d ./dist -o ${
-                    OptionOutput.OUTPUT_FILE
-                } -l ${OptionLang.LANG_TS} -s ./src/schema.json`
+                example: `$ gqlcat -i "./src/**/*.graphql" -i "./src/**/*.gql" -e "./dist/**/*.graphql" -d ./dist -o ${OptionOutput.OUTPUT_FILE} -l ${OptionLang.LANG_TS} -s ./src/schema.json`
             },
             {
                 desc: "Case: Using your {italic .graphqlconfig}.",
-                example: `$ gqlcat -d ./dist -o ${
-                    OptionOutput.OUTPUT_STDOUT
-                } -l ${OptionLang.LANG_GQL} -p github`
+                example: `$ gqlcat -d ./dist -o ${OptionOutput.OUTPUT_STDOUT} -l ${OptionLang.LANG_GQL} -p github`
             }
         ]
     },
