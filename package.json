@@ -79,7 +79,7 @@
     "@types/graphql": "^14.2.1",
     "@types/minimatch": "^3.0.3",
     "@types/mkdirp": "^0.5.2",
-    "@types/node": "^10.14.9",
+    "@types/node": "^10.14.10",
     "@types/rimraf": "^2.0.2",
     "ava": "^2.1.0",
     "graphql": "^14.3.1",
