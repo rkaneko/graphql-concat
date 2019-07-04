@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "gqlcat": "node ../../dist/cli/gqlcat -i \"./graphql/src/**/*.graphql\" -d ./graphql/dist -o file -l gql -s ./graphql/schema.json",
+    "gqlcat": "node ../../dist/cli/gqlcat -i \"./graphql/src/**/*.graphql\" -e \"./graphql/src/operation/Bootstrap.graphql\" -d ./graphql/dist -o file -l gql -s ./graphql/schema.json",
     "start": "node server.js"
   },
   "keywords": [],
