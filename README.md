@@ -4,7 +4,7 @@
 [![npm version][npm-image]][npm-url]
 [![Downloads/month][npm-donwload-image]][npm-trends-url]  
 [![License: MIT][license]](https://opensource.org/licenses/MIT)
-![typescript-image](https://img.shields.io/badge/Typescript-294E80.svg?style=shield&logo=typescript)
+![typescript-image](https://img.shields.io/badge/TypeScript-294E80.svg?style=shield&logo=typescript)
 ![supports Node.js][node-version]  
 [![build status][circleci-image]][circleci-url]  
 [![dependencies status][deps-image]][deps-url]
