@@ -41,7 +41,7 @@ export default async function compute(
             `A valid GraphQL introspection query result should be contained in : ${option.schema} .`
         );
     }
-    const schema = buildClientSchema(schemaJson.data);
+    const schema = buildClientSchema(schemaJson.data || schemaJson);
     for (const documentNode of computed.values()) {
         validateDocumentNode(schema, documentNode);
     }
