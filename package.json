@@ -80,7 +80,7 @@
     "@types/mkdirp": "^0.5.2",
     "@types/node": "^10.14.17",
     "@types/rimraf": "^2.0.2",
-    "ava": "^2.3.0",
+    "ava": "^2.4.0",
     "graphql": "^14.5.7",
     "graphql-config": "^2.2.1",
     "npm-run-all": "^4.1.5",
