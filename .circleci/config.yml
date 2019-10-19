@@ -10,7 +10,7 @@ version: 2
 jobs:
   node-base: &node-base
     docker:
-      - image: node:latest@sha256:aef1338c8538d8bf1163a75723ba64dc0299c3ba521e0b18b1a4af12df99f622
+      - image: node:latest@sha256:0a838466249f92308e1208acb1ddb310e1108d7ff570e371adf92764e35db2ac
     working_directory: ~/repo
     steps:
       - run:
