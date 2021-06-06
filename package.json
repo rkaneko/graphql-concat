@@ -6,7 +6,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">= 10.11.0"
+    "node": ">= v10.24.1"
   },
   "bin": {
     "gqlcat": "dist/cli/gqlcat.js"
@@ -78,7 +78,7 @@
     "@types/graphql": "^14.2.3",
     "@types/minimatch": "^3.0.3",
     "@types/mkdirp": "^0.5.2",
-    "@types/node": "^10.17.16",
+    "@types/node": "^10.17.60",
     "@types/rimraf": "^2.0.3",
     "ava": "^2.4.0",
     "graphql": "^14.6.0",
