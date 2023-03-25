@@ -76,7 +76,7 @@
     "@types/command-line-args": "^5.0.0",
     "@types/command-line-usage": "^5.0.1",
     "@types/graphql": "^14.2.3",
-    "@types/minimatch": "^3.0.3",
+    "@types/minimatch": "^5.0.0",
     "@types/mkdirp": "^0.5.2",
     "@types/node": "^10.17.16",
     "@types/rimraf": "^2.0.3",
